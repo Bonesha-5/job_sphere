@@ -1,4 +1,4 @@
-// Authentication Logic for Job Sphere
+// Authentication
 
 const BASE_PATH = '/job-sphere';
 
@@ -70,12 +70,26 @@ async function handleLogin(e) {
         const data = await response.json();
 
         if (data.success) {
+            // ✅ STORE THE TOKEN AND USER DATA
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+            }
+            if (data.user) {
+                localStorage.setItem('user', JSON.stringify(data.user));
+            }
+            // Store user ID if available
+            if (data.userId || data.user?.id) {
+                localStorage.setItem('userId', data.userId || data.user.id);
+            }
+            
+            console.log('Login successful, token stored');
             window.location.href = 'index.html';
         } else {
             errorDiv.textContent = data.message;
             errorDiv.style.display = 'block';
         }
     } catch (error) {
+        console.error('Login error:', error);
         errorDiv.textContent = 'Network error. Please try again.';
         errorDiv.style.display = 'block';
     }
@@ -260,12 +274,26 @@ async function handleSignup(e) {
         const data = await response.json();
 
         if (data.success) {
+            // ✅ STORE THE TOKEN AND USER DATA
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+            }
+            if (data.user) {
+                localStorage.setItem('user', JSON.stringify(data.user));
+            }
+            // Store user ID if available
+            if (data.userId || data.user?.id) {
+                localStorage.setItem('userId', data.userId || data.user.id);
+            }
+            
+            console.log('Signup successful, token stored');
             window.location.href = 'index.html';
         } else {
             errorDiv.textContent = data.message;
             errorDiv.style.display = 'block';
         }
     } catch (error) {
+        console.error('Signup error:', error);
         errorDiv.textContent = 'Network error. Please try again.';
         errorDiv.style.display = 'block';
     }
@@ -284,4 +312,31 @@ function updateRequirement(id, isValid) {
         element.classList.remove('valid');
         element.textContent = element.textContent.replace('✓', '✗');
     }
+}
+
+// ✅ LOGOUT FUNCTION - Add this to your navigation/profile pages
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('userId');
+    window.location.href = 'login.html';
+}
+
+// ✅ CHECK AUTH STATUS - Add this to protected pages
+function isAuthenticated() {
+    const token = localStorage.getItem('token');
+    return token !== null;
+}
+
+// ✅ REDIRECT IF NOT AUTHENTICATED - Add this to index.html and other protected pages
+function requireAuth() {
+    if (!isAuthenticated()) {
+        window.location.href = 'login.html';
+    }
+}
+
+// ✅ GET CURRENT USER - Use this to display user info
+function getCurrentUser() {
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
 }

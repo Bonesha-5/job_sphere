@@ -266,6 +266,7 @@ Test: **https://bonesha.tech/job-sphere/**
 
 ## 🔧 Configuration
 
+
 ### API Keys
 
 Edit `server.py` to update API keys:
@@ -497,6 +498,11 @@ def handle_your_endpoint(self, data):
 - **public/js/settings.js** - Settings management
 
 ---
+## Limitations
+
+The limitations of using https://bonesha.tech/job-sphere/ is that the session time is not persisitent sometimes it logs
+out the user. But it's still under development too.
+So I'm open to any contributions.
 
 ## 🤝 Contributing
 
@@ -563,6 +569,7 @@ For issues or questions:
 
 
 🌐 **Live Demo**: https://bonesha.tech/job-sphere/
-https://www.loom.com/share/9962822374eb4c18a74a840499bcad0c
+https://www.loom.com/share/df3ba38a07964f2fa21f864d9c597425
+
 
 

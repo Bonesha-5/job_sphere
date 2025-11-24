@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Sphere - Home</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div>
+                    <h1>Job Sphere</h1>
+                    <p>Welcome back, <span id="user-name">User</span>!</p>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="profile.html" class="nav-link">Profile</a>
+                    <a href="settings.html" class="nav-link">Settings</a>
+                    <a href="#" class="nav-link" id="logout-btn">Logout</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="api-counter">
+            <span id="counter-text">Loading API stats...</span>
+        </div>
+
+        <div id="recommended-jobs-section" class="recommended-section" style="display: none;">
+            <h2>Recommended Jobs for You</h2>
+            <p class="recommended-description">Based on your preferences</p>
+            <div id="recommended-jobs-container" class="results-container"></div>
+        </div>
+
+        <div class="search-section">
+            <h2>Search Jobs</h2>
+            <div class="search-form">
+                <input type="text" id="job-query" placeholder="Job title or keywords (e.g: Software Engineer)" required>
+                <input type="text" id="job-location" placeholder="Location (optional)">
+                <select id="job-source">
+                    <option value="all">All Sources</option>
+                </select>
+                <button id="search-btn">Search Jobs</button>
+            </div>
+        </div>
+
+        <!-- Filter and Sort -->
+        <div class="controls" id="controls" style="display: none;">
+            <div class="filter-section">
+                <h3>Filter & Sort</h3>
+                <div class="filter-controls">
+                    <select id="sort-by">
+                        <option value="">Sort by...</option>
+                        <option value="date-desc">Newest First</option>
+                        <option value="date-asc">Oldest First</option>
+                        <option value="title-asc">Title (A-Z)</option>
+                        <option value="title-desc">Title (Z-A)</option>
+                    </select>
+
+                    <select id="filter-type">
+                        <option value="">All Types</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="internship">Internship</option>
+                    </select>
+
+                    <input type="text" id="filter-company" placeholder="Filter by company...">
+                </div>
+            </div>
+
+            <div class="results-count">
+                <span id="results-count">0 jobs found</span>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Setting up...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message" style="display: none;"></div>
+
+        <!-- Results Container -->
+        <div id="results-container" class="results-container"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

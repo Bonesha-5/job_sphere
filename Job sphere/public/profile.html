@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Job Sphere</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>👤 My Profile</h1>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link active">Profile</a>
+                <a href="settings.html" class="nav-link">Settings</a>
+                <a href="#" class="nav-link" id="logout-btn">Logout</a>
+            </nav>
+        </header>
+
+        <div class="profile-container">
+            <!-- Information of the account -->
+            <div class="profile-section">
+                <h2>Account Information</h2>
+                <form id="account-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="new-password">New Password (Type new password in case you want to change the
+                            password)</label>
+                        <input type="password" id="new-password" placeholder="Enter new password">
+                        <div id="password-requirements" class="password-requirements" style="display: none;">
+                            <small id="prof-req-length" class="requirement"> ✅At least 8 characters</small>
+                            <small id="prof-req-uppercase" class="requirement">✅ One uppercase letter</small>
+                            <small id="prof-req-lowercase" class="requirement">✅ One lowercase letter</small>
+                            <small id="prof-req-number" class="requirement">✅ One number</small>
+                            <small id="prof-req-special" class="requirement">✅ One special character</small>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Save Account Information</button>
+                </form>
+            </div>
+
+            <!-- Job Preferences -->
+            <div class="profile-section">
+                <h2>Job Preferences</h2>
+                <p class="section-description">Set your job preferences to get personalized recommendations</p>
+
+                <form id="preferences-form">
+                    <div class="form-group">
+                        <label for="job-titles">Preferred Job Titles</label>
+                        <input type="text" id="job-titles" placeholder="e.g: Product Manager, Financial Analyst">
+                        <small>Separate multiple titles with commas</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locations">Preferred Locations</label>
+                        <input type="text" id="locations" placeholder="e.g: New York, London">
+                        <small>Separate multiple locations with commas</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job-types">Preferred Job Types</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="job-type" value="full-time">
+                                Full-time
+                            </label>
+                            <label>
+                                <input type="checkbox" name="job-type" value="part-time">
+                                Part-time
+                            </label>
+                            <label>
+                                <input type="checkbox" name="job-type" value="contract">
+                                Contract
+                            </label>
+                            <label>
+                                <input type="checkbox" name="job-type" value="internship">
+                                Internship
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Save Preferences</button>
+                </form>
+            </div>
+
+            <div id="message" class="success-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

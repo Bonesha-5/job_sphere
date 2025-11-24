@@ -1,0 +1,3 @@
+# Only one external package needed!
+
+requests==2.31.0

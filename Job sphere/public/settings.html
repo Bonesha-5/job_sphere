@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Job Sphere</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Settings</h1>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+                <a href="settings.html" class="nav-link active">Settings</a>
+                <a href="#" class="nav-link" id="logout-btn">Logout</a>
+            </nav>
+        </header>
+
+        <div class="settings-container">
+            <!-- Appearance Settings -->
+            <div class="settings-section">
+                <h2>Appearance</h2>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Dark Mode</h3>
+                        <p>Personalize your account by changing to Dark or Light mode.</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="dark-mode-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="settings-section">
+                <h2>Notifications</h2>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Job Recommendations</h3>
+                        <p>Show recommended jobs based on your preferences on the home page</p>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="notifications-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Account Actions -->
+            <div class="settings-section">
+                <h2>Account</h2>
+
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <h3>Account Information</h3>
+                        <p>Logged in as: <strong id="account-username">Loading...</strong></p>
+                        <p>Email: <strong id="account-email">Loading...</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="message" class="success-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="js/settings.js"></script>
+
+</body>
+
+</html>

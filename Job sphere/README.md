@@ -551,4 +551,7 @@ For issues or questions:
 
 **Built with ❤️ using vanilla Python and JavaScript - no frameworks needed!**
 
+
 🌐 **Live Demo**: https://bonesha.tech/job-sphere/
+https://www.loom.com/share/9962822374eb4c18a74a840499bcad0c
+

@@ -241,9 +241,19 @@ Repeat steps 1-3 on web02 with the same commands.
 
 #### Step 5: Verify Load Balancer
 
-Your HAProxy on lb01 should already be configured. If not, add:
+Your HAProxy on lb01 should already be configured. If not, add in /etc/haproxy/haproxy.cfg :
 
 ```
+frontend http_front
+    bind *:80
+    mode http
+    http-request redirect scheme https code 301
+
+frontend https_front
+    bind *:443 ssl crt /path/to/ssl/certifiacte
+    mode http
+    default_backend web_servers
+
 backend web_servers
     balance roundrobin
     server web-01 <web01-ip>:80 check
@@ -554,4 +564,5 @@ For issues or questions:
 
 🌐 **Live Demo**: https://bonesha.tech/job-sphere/
 https://www.loom.com/share/9962822374eb4c18a74a840499bcad0c
+
 
